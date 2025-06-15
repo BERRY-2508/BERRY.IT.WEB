@@ -96,6 +96,16 @@
     .section li {
       margin-bottom: 1em;
     }
+    .code-box {
+      background-color: #1e1e1e;
+      color: #00ff90;
+      font-family: monospace;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid #000;
+      margin-top: 1em;
+    }
     a {
       color: #ff0000;
     }
@@ -120,15 +130,16 @@
     <img src="BERRY-IT.png" alt="BERRY IT Logo">
     <nav>
       <a href="#home">Home</a>
+      
       <a href="#about">About Us</a>
       <a href="#services">Services</a>
-      <a href="#support">Get Support</a>
+      <a href="#support">Utilities</a>
     </nav>
   </header>
 
   <section id="home" class="hero">
     <h2>Empowering Your Business Through Innovative IT</h2>
-    <p>The "Rhipe" Choice for your IT Solutions - BERRY IT</p>
+    <p>The Rhipe Choice for your IT Solutions - BERRY IT</p>
   </section>
 
   <section id="about" class="section">
@@ -147,14 +158,19 @@
     </ul>
   </section>
 
-  <section id="support" class="section">
-    <h2>Get Support</h2>
-    <p>Need help? Our support team is ready to assist you. Reach out to us <a href="https://youtu.be/dQw4w9WgXcQ?si=YENal_D1AZE291Mn">here</a> and one of our technicians will be in touch shortly.</p>
-    <p>We're here to solve issues fast and ensure your systems stay online, secure, and efficient.</p>
+ <section id="utilities" class="section">
+    <h2>Utilities</h2>
+    <p><strong>One Command – Download and Use</strong></p>
+    <p>Run the following in an <em>elevated</em> (Run as Administrator) PowerShell prompt:</p>
+    <div class="code-box">
+      iwr -useb https://winforge.berry.it.com/win | iex
+    </div>
   </section>
 
+
+
   <footer>
-    <p>&copy; 2025 BERRY IT. All rights reserved. | <a href="http://berry.it.com">berry.it.com</a></p>
+    <p>&copy; 2025 BERRY IT. All rights reserved. | Custom Domain: <a href="http://berry.it.com">berry.it.com</a></p>
   </footer>
 </body>
 </html>
