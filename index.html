@@ -124,13 +124,17 @@
 #services .services-signoff p{color:#f4f4f4;margin:12px 0 0;font-size:.95rem}
 #services .services-signoff strong{color:#ff3c3c;font-weight:600}
 @media(max-width:650px){#services .service h3{min-height:0}#services .services-pillars{line-height:2}#services .services-pillars span{margin:0 5px}}
+
+/* Minimal brand slogan beneath approved full logo */
+.site-header .brand-slogan{font-family:Orbitron,Arial,sans-serif;font-weight:500;font-size:clamp(10px,1.25vw,13px);letter-spacing:.09em;line-height:1.65;text-align:center;color:#f4f4f4;padding:0 12px 21px;max-width:100%;}
+@media(max-width:650px){.site-header .brand-slogan{font-size:clamp(9px,2.25vw,11px);letter-spacing:.055em;padding:0 10px 16px}}
 </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="https://berry.it.com/" aria-label="BERRY IT home"><img src="https://berry.it.com/berry-it-full-logo.webp" alt="BERRY IT — Consult, Secure, Manage, Grow"></a>
-      <button class="menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div class="brand-slogan">“The Ripe Choice for Your IT Solutions”</div><button class="menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
       <nav class="nav-links" id="nav-links" aria-label="Main navigation"><a href="https://berry.it.com/">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="https://berry.it.com/#utilities">Utilities</a></nav>
     </div>
   </header>
