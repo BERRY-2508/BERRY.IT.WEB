@@ -17,7 +17,7 @@
     body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.7}
     a{color:inherit;text-decoration:none} a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:4px}
     .wrap{width:min(1160px,calc(100% - 44px));margin:auto}
-    .site-header{position:sticky;top:0;z-index:10;background:#222228;backdrop-filter:blur(18px);border-bottom:1px solid #44444b}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(11,11,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;min-height:83px;gap:24px}
     .brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
     .brand img{height:52px;width:auto;max-width:170px;object-fit:contain}
@@ -125,6 +125,7 @@
     </section>
     <section class="section" id="utilities">
       <div class="wrap">
+        <div class="section-head"><div class="kicker">BERRY IT tools &amp; games</div><h2>Utilities</h2><p>Discover our Windows tools and PowerShell games, with quick access to launch instructions.</p></div>
         <div class="utility-panel">
           <div class="utility-content"><div class="kicker">BERRY IT tools</div><h2>WinForge Utility</h2><p>Our Windows system utility is available through a simple PowerShell command.</p><p>Run the command in an elevated (Run as Administrator) PowerShell prompt. Only run scripts you trust after reviewing their source.</p><a class="btn btn-secondary" href="https://winforge.berry.it.com/">Explore WinForge <span aria-hidden="true">↗</span></a></div>
           <div class="terminal"><div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>PowerShell · Administrator</div><div class="terminal-body"><code id="command">iwr -useb https://winforge.berry.it.com/win | iex</code><button class="copy" type="button" id="copy-command">Copy command</button><small>Review the script before running it with administrator privileges.</small></div></div>
