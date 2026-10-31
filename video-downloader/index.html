@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b0b0e"><meta name="description" content="BERRY IT Video Downloader for Windows and Linux. Save videos, audio and YouTube playlists locally."><title>Video Downloader | BERRY IT</title><link rel="icon" type="image/webp" href="/berry-it-icon.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet"><style>
+    :root {color-scheme:dark;--bg:#0b0b0e;--surface:#141417;--panel:#1b1b20;--text:#f4f4f4;--muted:#acaab2;--red:#ff3c3c;--deep:#d00000;--line:#303036;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.7}
+    a{color:inherit;text-decoration:none} a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+    .wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(11,11,14,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:83px;gap:24px}
+    .brand{display:inline-flex;align-items:center;gap:13px;min-width:0}
+    .brand img{height:52px;width:auto;max-width:170px;object-fit:contain}
+    .brand span{font:700 .88rem Orbitron,sans-serif;letter-spacing:.09em;white-space:nowrap}
+    .brand span b{color:var(--red)}
+    .nav-links{display:flex;align-items:center;gap:30px}
+    .nav-links a{font-size:.88rem;font-weight:600;color:#d4d2d8;transition:color .2s}
+    .nav-links a:hover{color:var(--red)}
+    .nav-links .nav-cta{padding:10px 17px;border:1px solid #9e3035;border-radius:9px;color:#fff;background:rgba(255,60,60,.1)}
+    .menu-button{display:none;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:white;padding:8px 12px;font-size:1.2rem;cursor:pointer}
+    .hero{position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 83% 28%,rgba(208,0,0,.24),transparent 42%),radial-gradient(ellipse at 65% 90%,rgba(255,60,60,.07),transparent 45%),linear-gradient(120deg,#111116,#0b0b0e 70%);pointer-events:none}
+    .hero:after{content:"";position:absolute;inset:0;opacity:.15;background-image:linear-gradient(#666 1px,transparent 1px),linear-gradient(90deg,#666 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(90deg,transparent 25%,black 100%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;padding:105px 0 115px;max-width:1160px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font:600 .75rem Orbitron,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#ff8585;margin-bottom:24px}
+    .eyebrow:before{content:"";height:8px;width:8px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+    h1,h2,h3{font-family:Orbitron,Arial,sans-serif;line-height:1.25;margin:0}
+    h1{max-width:920px;font-size:clamp(2.5rem,6vw,5.2rem);letter-spacing:-.045em;font-weight:800}
+    h1 em{font-style:normal;color:var(--red)}
+    .hero-copy{max-width:650px;color:#bdbbc3;font-size:clamp(1rem,1.6vw,1.16rem);margin:27px 0 36px}
+    .actions{display:flex;flex-wrap:wrap;gap:13px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:10px;font-weight:700;font-size:.91rem;transition:transform .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--red),var(--deep));color:white;box-shadow:0 8px 28px #d0000030}
+    .btn-secondary{border:1px solid #44434b;background:#1b1b20;color:white}
+    .strip{border-bottom:1px solid var(--line);background:#111114}
+    .strip-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:21px 0;flex-wrap:wrap}
+    .strip strong{font:600 .74rem Orbitron,sans-serif;letter-spacing:.08em;color:#dad8de}
+    .strip span{font-size:.85rem;color:var(--muted)}
+    .section{padding:100px 0}
+    .section-alt{background:#101013;border-top:1px solid #232328;border-bottom:1px solid #232328}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .kicker{color:var(--red);text-transform:uppercase;letter-spacing:.2em;font:700 .72rem Orbitron,sans-serif;margin-bottom:15px}
+    h2{font-size:clamp(1.8rem,3.5vw,2.9rem);letter-spacing:-.04em}
+    .section-head p,.about-copy p,.utility-content p{color:var(--muted);font-size:1rem}
+    .section-head p{margin:17px 0 0}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .service{border:1px solid var(--line);border-radius:16px;background:linear-gradient(155deg,#1a1a1f,#131316);padding:30px;transition:border-color .2s,transform .2s}
+    .service:hover{border-color:#a93940;transform:translateY(-4px)}
+    .service-icon{display:grid;place-items:center;width:49px;height:49px;border:1px solid #713137;border-radius:13px;background:#ff3c3c12;color:var(--red);font-size:1.4rem;margin-bottom:23px}
+    h3{font-size:1.04rem;letter-spacing:-.02em}
+    .service p{font-size:.91rem;color:var(--muted);margin:13px 0 0}
+    .about-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:75px}
+    .about-copy p{margin:20px 0}
+    .about-panel{position:relative;border:1px solid #393039;border-radius:20px;background:radial-gradient(circle at 85% 12%,#5b181f 0,transparent 49%),linear-gradient(140deg,#202025,#111114);padding:42px;min-height:270px;display:flex;flex-direction:column;justify-content:center}
+    .about-panel .big{font:800 clamp(2rem,4vw,3.1rem) Orbitron,sans-serif;line-height:1.25;letter-spacing:-.045em}
+    .about-panel .big span{color:var(--red)}
+    .about-panel p{color:var(--muted);margin:18px 0 0}
+    .utility-panel{border:1px solid #4d2b30;border-radius:20px;background:linear-gradient(115deg,#1c1519,#151518);padding:clamp(25px,5vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+    .utility-content h2{margin-top:12px}
+    .terminal{min-width:0;background:#08090b;border:1px solid #3c3c43;border-radius:13px;overflow:hidden;box-shadow:0 18px 45px #0005}
+    .terminal-head{padding:12px 17px;border-bottom:1px solid #26262a;background:#17171b;color:#aaa;font:500 .76rem Inter,sans-serif;display:flex;align-items:center;gap:10px}
+    .dots{color:#ff6767;letter-spacing:.16em}
+    .terminal-body{padding:22px}
+    .terminal code{display:block;overflow-wrap:anywhere;color:#b9f4cd;font:500 .84rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace}
+    .terminal code:before{content:"> ";color:var(--red)}
+    .copy{margin-top:19px;border:1px solid #505058;border-radius:8px;background:#24242a;color:white;padding:9px 14px;font-weight:600;cursor:pointer}
+    .copy:hover{background:#34343b}
+    .terminal small{display:block;margin-top:14px;color:#96939b;font-size:.76rem}
+    footer{border-top:1px solid var(--line);background:#09090b;padding:32px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    footer p{margin:0;color:#aaa8b1;font-size:.83rem}
+    footer a{color:var(--red)} footer a:hover{text-decoration:underline}
+    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.utility-panel,.about-layout{grid-template-columns:1fr;gap:30px}}
+    @media(max-width:650px){.wrap{width:min(100% - 32px,1160px)}.nav{min-height:74px}.brand img{height:43px}.brand span{font-size:.72rem}.menu-button{display:block}.nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#111115;padding:20px 16px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:16px}.nav-links.open{display:flex}.hero{min-height:570px}.hero-inner{padding:80px 0}.section{padding:72px 0}.grid{grid-template-columns:1fr}.service{padding:25px}.about-panel{padding:29px}.strip-inner{align-items:flex-start;flex-direction:column;gap:5px}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  
+/* 2026 BERRY IT identity — shared across all three sites */
+.brand{gap:0;flex-shrink:0}.brand img{height:65px;width:min(350px,45vw);max-width:none;object-fit:contain;object-position:left center}
+.site-header{background:rgba(8,8,11,.94);border-bottom:1px solid #42141d;box-shadow:0 1px 20px rgba(255,20,45,.08)}
+.hero:before{background:radial-gradient(ellipse at 84% 35%,rgba(222,0,31,.20),transparent 43%),radial-gradient(ellipse at 85% 90%,rgba(208,0,0,.09),transparent 48%),linear-gradient(125deg,#101014,#08080a 74%)}
+.hero .hero-inner:after{content:"";position:absolute;right:-22px;top:50%;transform:translateY(-50%);width:clamp(130px,20vw,255px);height:clamp(160px,23vw,288px);background:url("https://berry.it.com/berry-it-icon.webp") center/contain no-repeat;opacity:.20;filter:drop-shadow(0 0 30px #cf003a);pointer-events:none}
+.hero .hero-inner>*{position:relative;z-index:1}.eyebrow,.kicker{color:#ff5969}.btn-primary{background:linear-gradient(135deg,#ff263d,#c80023)}
+@media(max-width:650px){.brand img{height:49px;width:min(260px,68vw)}.hero .hero-inner:after{right:0;opacity:.10}}
+
+/* Full-width approved BERRY IT banner above navigation */
+.site-header{position:relative;background:linear-gradient(180deg,#141417 0%,#151316 68%,#191115 100%)}
+.site-header .nav{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;min-height:0}
+.site-header .brand{display:flex;width:100%;justify-content:center;align-items:center;padding:12px 8px 14px;min-height:170px}
+.site-header .brand img{display:block;width:min(760px,100%);height:auto;max-width:100%;max-height:235px;object-fit:contain;object-position:center;mix-blend-mode:lighten}
+.site-header .nav-links{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;width:100%;gap:30px;padding:13px 0 15px;border-top:1px solid #362128}
+.site-header .menu-button{display:none}
+@media(max-width:650px){
+ .site-header .nav{position:relative;min-height:0}
+ .site-header .brand{min-height:110px;padding:8px 0 12px}
+ .site-header .brand img{width:min(450px,100%);height:auto;max-height:146px}
+ .site-header .menu-button{display:block;position:relative;align-self:flex-end;margin:0 0 10px}
+ .site-header .nav-links{display:none;position:absolute;top:100%;left:-16px;right:-16px;width:auto;background:#111115;flex-direction:column;align-items:stretch;gap:16px;padding:20px 16px 24px;border-bottom:1px solid var(--line);z-index:20}
+ .site-header .nav-links.open{display:flex}
+}
+
+/* BERRY IT six-service cards and four brand pillars */
+#services .grid{align-items:stretch}
+#services .service{display:flex;flex-direction:column;min-width:0;background:#17171b;border-color:#403038;padding:26px;transition:transform .2s,border-color .2s,box-shadow .2s}
+#services .service:hover{border-color:#ff3c3c;transform:translateY(-4px);box-shadow:0 10px 30px rgba(255,60,60,.075)}
+#services .service-icon{width:49px;height:49px;background:#29171b;border-color:#68313b;margin-bottom:20px}
+#services .service-icon svg{width:25px;height:25px;display:block}
+#services .service h3{min-height:2.5em}
+#services .service p{flex:1;margin:11px 0 26px}
+#services .service-pillar{border-top:1px solid #363036;padding-top:15px;color:#ff626c;font:700 .7rem Orbitron,sans-serif;letter-spacing:.13em}
+#services .services-signoff{text-align:center;margin-top:36px}
+#services .services-pillars{font:700 .72rem Orbitron,sans-serif;letter-spacing:.14em;color:#eee}
+#services .services-pillars span{color:#ff3c3c;margin:0 12px}
+#services .services-signoff p{color:#f4f4f4;margin:12px 0 0;font-size:.95rem}
+#services .services-signoff strong{color:#ff3c3c;font-weight:600}
+@media(max-width:650px){#services .service h3{min-height:0}#services .services-pillars{line-height:2}#services .services-pillars span{margin:0 5px}}
+
+.utility-download-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}.utility-download-card{border:1px solid #4d2b30;border-radius:18px;background:linear-gradient(135deg,#20181d,#151518);padding:30px}.utility-download-card p{color:var(--muted)}.utility-download-card .btn{margin-top:14px}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.feature-grid .service{min-height:210px}.feature-grid .service h3{min-height:0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}.step{border:1px solid var(--line);border-radius:15px;background:#17171b;padding:26px}.step strong{font:700 .8rem Orbitron,sans-serif;color:var(--red)}.step p{color:var(--muted);font-size:.9rem}@media(max-width:850px){.utility-download-grid,.feature-grid,.steps{grid-template-columns:1fr}}</style></head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="https://berry.it.com/" aria-label="BERRY IT home"><img src="/berry-it-full-logo.webp" alt="BERRY IT — Consult, Secure, Manage, Grow"></a><button class="menu-button" id="menu-button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button><nav class="nav-links" id="nav-links" aria-label="Main navigation"><a href="https://berry.it.com/">Home</a><a href="https://berry.it.com/#about">About</a><a href="https://berry.it.com/#services">Services</a><a href="https://berry.it.com/#utilities">Utilities</a></nav></div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-inner"><div class="eyebrow">BERRY IT utilities · Windows &amp; Linux</div><h1>Video <em>Downloader.</em></h1><p class="hero-copy">Download videos, audio and entire YouTube playlists directly to your own computer. Simple controls, quality options and the familiar BERRY IT design.</p><div class="actions"><a class="btn btn-primary" href="#downloads">Download the app ↓</a><a class="btn btn-secondary" href="https://github.com/BERRY-2508/BERRY-IT-Video-Downloader">View source on GitHub ↗</a></div></div></section>
+<div class="strip"><div class="wrap strip-inner"><strong>LOCAL DESKTOP UTILITY</strong><span>Windows &nbsp;•&nbsp; Linux &nbsp;•&nbsp; MP4 &nbsp;•&nbsp; MP3 &nbsp;•&nbsp; Playlists</span></div></div>
+<section class="section" id="features"><div class="wrap"><div class="section-head"><div class="kicker">Features</div><h2>Download your way.</h2><p>Choose the media format, video quality and save location. Everything is processed on your computer.</p></div><div class="feature-grid">
+<article class="service"><div class="service-icon" aria-hidden="true">▣</div><h3>MP4 &amp; MP3</h3><p>Save video or extract audio using built-in conversion tools.</p></article>
+<article class="service"><div class="service-icon" aria-hidden="true">☷</div><h3>Full playlists</h3><p>Download a single video or a complete playlist, organised in its own folder.</p></article>
+<article class="service"><div class="service-icon" aria-hidden="true">↓</div><h3>Progress &amp; history</h3><p>Track download progress and skip items you've downloaded before.</p></article>
+</div></div></section>
+<section class="section section-alt" id="downloads"><div class="wrap"><div class="section-head"><div class="kicker">Get the app</div><h2>Download for your platform.</h2><p>Open the latest successful GitHub Actions build, then download the file listed under <strong>Artifacts</strong>. These are early development builds and may need additional system dependencies.</p></div>
+<div class="utility-download-grid">
+<article class="utility-download-card"><div class="kicker">Windows · 64-bit</div><h3>Windows application</h3><p>Download the desktop executable from the Windows build workflow. The executable is unsigned, so Windows may show a security warning.</p><a class="btn btn-primary" href="https://github.com/BERRY-2508/BERRY-IT-Video-Downloader/actions/workflows/build-windows.yml">Get Windows build ↗</a></article>
+<article class="utility-download-card"><div class="kicker">Linux · x86_64</div><h3>Linux application</h3><p>Download the Linux build artifact, extract the ZIP and the enclosed tar.gz, then launch the executable. A graphical desktop is required.</p><a class="btn btn-primary" href="https://github.com/BERRY-2508/BERRY-IT-Video-Downloader/actions/workflows/build-linux.yml">Get Linux build ↗</a></article>
+</div><p style="color:var(--muted);margin-top:22px">GitHub sign-in may be required to access Actions artifacts. For YouTube compatibility, you may also need Deno installed. Browse the <a style="color:var(--red);text-decoration:underline" href="https://github.com/BERRY-2508/BERRY-IT-Video-Downloader">source and setup instructions</a>.</p></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><div class="kicker">How it works</div><h2>Three simple steps.</h2></div><div class="steps"><div class="step"><strong>01</strong><h3>Paste a link</h3><p>Copy the URL of a YouTube video or playlist.</p></div><div class="step"><strong>02</strong><h3>Choose options</h3><p>Select single video or entire playlist, MP4 or MP3, and your quality.</p></div><div class="step"><strong>03</strong><h3>Download locally</h3><p>Pick your output folder and start the download. Only save content you have permission to download.</p></div></div></div></section>
+</main><footer><div class="wrap footer-inner"><p>© <span id="year">2026</span> BERRY IT. All rights reserved.</p><p>The ripe choice for your IT solutions. &nbsp; <a href="https://berry.it.com/#utilities">Back to utilities ↑</a></p></div></footer>
+<script>const menuButton=document.getElementById('menu-button');const navLinks=document.getElementById('nav-links');menuButton.addEventListener('click',()=>{const opened=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(opened));});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));document.getElementById('year').textContent=new Date().getFullYear();</script></body></html>
