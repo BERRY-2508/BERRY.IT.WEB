@@ -222,7 +222,7 @@ $window.FindName('PingStart').Add_Click({
 })
 $window.FindName('PingStop').Add_Click({$script:pingActive=$false;$script:pingTimer.Stop();$HeaderStatus.Text='Ping monitoring stopped'})
 $window.FindName('PingClear').Add_Click({$script:pingRows.Clear();$script:pingSamples.Clear();$script:pingSent=0;$script:pingReceived=0;$PingCanvas.Children.Clear();$PingLatest.Text='— ms';$PingAverage.Text='— ms';$PingLoss.Text='— %';$PingCount.Text='0 / 0'})
-$window.FindName('PingExport').Add_Click({$rows=@($script:pingRows);if($rows.Count){Save-Text (($rows | ConvertTo-Csv -NoTypeInformation) -join "`r`n") 'berrynet-ping.csv' 'CSV files (*.csv)|*.csv'}})
+$window.FindName('PingExport').Add_Click({$rows=@($script:pingRows);if($rows.Count){Save-Text (($rows | ConvertTo-Csv -NoTypeInformation) -join "`r`n") 'berry-it-network-utility-ping.csv' 'CSV files (*.csv)|*.csv'}})
 function Display-SpeedEngine {
  $SpeedEngine.Text='Built-in .NET engine  |  Cloudflare edge  |  No additional install required'
 }
@@ -286,9 +286,9 @@ $window.FindName('SpeedStart').Add_Click({
   }finally {$http.Dispose()}
  }
 })
-$window.FindName('SpeedExport').Add_Click({$rows=@($script:speedRows);if($rows.Count){Save-Text (($rows | ConvertTo-Csv -NoTypeInformation)-join "`r`n") 'berrynet-speedtest.csv' 'CSV files (*.csv)|*.csv'}})
+$window.FindName('SpeedExport').Add_Click({$rows=@($script:speedRows);if($rows.Count){Save-Text (($rows | ConvertTo-Csv -NoTypeInformation)-join "`r`n") 'berry-it-network-utility-speedtest.csv' 'CSV files (*.csv)|*.csv'}})
 $window.FindName('RouteStart').Add_Click({$target=$RouteTarget.Text.Trim();if(-not $target){return};$RouteStatus.Text='Tracing...';Start-Work {param($hostname) & tracert.exe -d -w 1200 -h 20 $hostname | Out-String} @($target) {param($result)$RouteOutput.Text=$result;$RouteStatus.Text='Traceroute completed'}})
-$window.FindName('RouteExport').Add_Click({Save-Text $RouteOutput.Text 'berrynet-traceroute.txt'})
+$window.FindName('RouteExport').Add_Click({Save-Text $RouteOutput.Text 'berry-it-network-utility-traceroute.txt'})
 $window.FindName('DNSStart').Add_Click({$target=$DNSTarget.Text.Trim();if(-not $target){return};$type=([Windows.Controls.ComboBoxItem]$DNSType.SelectedItem).Content.ToString();$server=$DNSServer.Text.Trim();$DNSStatus.Text='Querying...';Start-Work {param($hostname,$recordType,$resolver) if($resolver){Resolve-DnsName -Name $hostname -Type $recordType -Server $resolver -ErrorAction Stop | Format-List | Out-String}else{Resolve-DnsName -Name $hostname -Type $recordType -ErrorAction Stop | Format-List | Out-String}} @($target,$type,$server) {param($result)$DNSOutput.Text=$result;$DNSStatus.Text='DNS query completed'}})
 $window.FindName('PortStart').Add_Click({
  $num=0;$time=0;if(-not [int]::TryParse($PortNumber.Text,[ref]$num) -or $num -lt 1 -or $num -gt 65535 -or -not [int]::TryParse($PortTimeout.Text,[ref]$time) -or $time -lt 100 -or $time -gt 30000 -or -not $PortTarget.Text.Trim()){[Windows.MessageBox]::Show('Enter a valid hostname, TCP port 1–65535, and timeout 100–30000 ms.','Berry IT Network Utility')|Out-Null;return}
@@ -296,8 +296,8 @@ $window.FindName('PortStart').Add_Click({
 })
 foreach($portPreset in @(80,443,3389)){$btn=$window.FindName('Port'+$portPreset);$p=$portPreset;$btn.Add_Click(([scriptblock]::Create("`$PortNumber.Text='$p'")))}
 function Refresh-Adapters {try{$AdaptersOutput.Text=(Get-NetIPConfiguration -Detailed | Format-List | Out-String -Width 180)+"`r`n--- Network adapter link details ---`r`n"+(Get-NetAdapter | Format-Table -AutoSize | Out-String -Width 180)}catch{$AdaptersOutput.Text=$_.Exception.Message}}
-$window.FindName('AdaptersRefresh').Add_Click({Refresh-Adapters});$window.FindName('AdaptersExport').Add_Click({Save-Text $AdaptersOutput.Text 'berrynet-adapters.txt'})
-$window.FindName('ReportSave').Add_Click({$report="Berry IT Network Utility diagnostic session — $(Get-Date -Format o)`r`n`r`nADAPTERS`r`n$($AdaptersOutput.Text)`r`nPING`r`n$(($script:pingRows | Format-Table -AutoSize | Out-String))`r`nSPEED TEST HISTORY`r`n$(($script:speedRows | Format-Table -AutoSize | Out-String))";Save-Text $report 'berrynet-report.txt'})
+$window.FindName('AdaptersRefresh').Add_Click({Refresh-Adapters});$window.FindName('AdaptersExport').Add_Click({Save-Text $AdaptersOutput.Text 'berry-it-network-utility-adapters.txt'})
+$window.FindName('ReportSave').Add_Click({$report="Berry IT Network Utility diagnostic session — $(Get-Date -Format o)`r`n`r`nADAPTERS`r`n$($AdaptersOutput.Text)`r`nPING`r`n$(($script:pingRows | Format-Table -AutoSize | Out-String))`r`nSPEED TEST HISTORY`r`n$(($script:speedRows | Format-Table -AutoSize | Out-String))";Save-Text $report 'berry-it-network-utility-report.txt'})
 $window.FindName('DashSpeedButton').Add_Click({
  $window.FindName('SpeedStart').RaiseEvent([Windows.RoutedEventArgs]::new([Windows.Controls.Primitives.ButtonBase]::ClickEvent))
 });$window.FindName('DashSpeedDetails').Add_Click({Show-Page 'Speed'});
