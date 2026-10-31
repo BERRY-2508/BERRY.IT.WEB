@@ -33,14 +33,14 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 <div class="eyebrow">BERRY IT · Windows network utility</div>
 <h1>BERRY<span>NET</span></h1>
 <p class="intro">Understand your connection. BerryNet brings real network diagnostics into one native, branded Windows desktop interface — without opening a browser-based dashboard.</p>
-<div class="note"><strong>Release status:</strong> Windows preview build under testing. The planned PowerShell one-line launcher is not live yet. We'll enable it after the published script has been verified.</div>
+<div class="note"><strong>Release status:</strong> Windows preview build under testing. The PowerShell source is published on GitHub. The separate BerryNet subdomain is not yet configured.</div>
 <div class="cards">
 <div class="card"><h3>Network dashboard</h3><p>Device hostname, local and public IP addresses, Windows details, active adapter, gateway and DNS information.</p></div>
 <div class="card"><h3>Internet speed test</h3><p>Run download and upload measurements directly from the home dashboard or the dedicated Speed Test view. See latency, jitter and history.</p></div>
 <div class="card"><h3>Technician diagnostics</h3><p>Continuous ping graph, DNS records, traceroute, TCP port tests, adapter details and exportable reports.</p></div>
 </div>
 <section><h2>Built for Windows PowerShell</h2><p>BerryNet uses a native WPF interface with your approved BERRY IT imagery, charcoal panels, red accents and Orbitron headings. Most read-only diagnostics do not need administrator privileges.</p>
-<p>The launch command planned for the completed release is:</p><code>irm https://berrynet.berry.it.com/win | iex</code>
-<p><strong>Not live:</strong> Please do not run this command until the endpoint is published and verified. Downloading and executing remote scripts carries security risks; the source will be made available for review.</p>
+<p>Launch the GitHub-hosted script from Windows PowerShell after reviewing its source:</p><code>irm https://raw.githubusercontent.com/BERRY-2508/BERRY.IT.WEB/main/berrynet/BerryNet.ps1 | iex</code>
+<p><strong>Preview:</strong> This build still needs Windows testing. <a href='https://raw.githubusercontent.com/BERRY-2508/BERRY.IT.WEB/main/berrynet/BerryNet.ps1'>Review the PowerShell source</a> before running. The shorter subdomain launch command is not yet configured.</p>
 <a class="btn" href="/#utilities">All BERRY IT utilities</a></section>
 </main><footer><div class="wrap">© 2026 BERRY IT · <a href="/">Home</a></div></footer></body></html>
