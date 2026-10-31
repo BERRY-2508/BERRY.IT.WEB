@@ -124,6 +124,18 @@
 #services .services-signoff p{color:#f4f4f4;margin:12px 0 0;font-size:.95rem}
 #services .services-signoff strong{color:#ff3c3c;font-weight:600}
 @media(max-width:650px){#services .service h3{min-height:0}#services .services-pillars{line-height:2}#services .services-pillars span{margin:0 5px}}
+
+/* Consistent branded previews for all BERRY IT utilities */
+.utility-preview{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px}
+.utility-preview .utility-icon{display:grid;place-items:center;width:76px;height:76px;border:1px solid #713137;border-radius:17px;background:#29171b;color:#ff3c3c;flex-shrink:0}
+.utility-preview .utility-icon svg{width:40px;height:40px}
+.utility-preview .utility-title{font:700 clamp(.85rem,1.7vw,1rem) Orbitron,sans-serif;letter-spacing:.01em;color:#f4f4f4;overflow-wrap:anywhere}
+.utility-preview .utility-title span{color:#ff3c3c}
+.utility-preview .utility-subtitle{margin:0;color:#acaab2;font-size:.84rem}
+.utility-preview .utility-command{width:100%;text-align:left;margin-top:7px}
+.utility-preview .copy{align-self:flex-start;margin-top:0}
+.utility-preview .utility-action{width:100%;margin-top:7px}
+.utility-preview small{width:100%;text-align:center}
 </style>
 </head>
 <body>
@@ -169,7 +181,17 @@
         <div class="section-head"><div class="kicker">BERRY IT tools &amp; games</div><h2>Utilities</h2><p>Discover our desktop utilities and PowerShell games, with downloads and launch instructions.</p></div>
         <div class="utility-panel">
           <div class="utility-content"><div class="kicker">BERRY IT tools</div><h2>WinForge Utility</h2><p>Our Windows system utility is available through a simple PowerShell command.</p><p>Run the command in an elevated (Run as Administrator) PowerShell prompt.</p><a class="btn btn-secondary" href="https://winforge.berry.it.com/">Explore WinForge <span aria-hidden="true">↗</span></a></div>
-          <div class="terminal"><div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>PowerShell · Administrator</div><div class="terminal-body"><code id="command">iwr -useb https://winforge.berry.it.com/win | iex</code><button class="copy" type="button" id="copy-command">Copy command</button><small>Review the script before running it with administrator privileges.</small></div></div>
+          <div class="terminal">
+            <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>BERRY IT · Windows utility</div>
+            <div class="terminal-body utility-preview">
+              <div class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4l-5.7 5.7a2 2 0 0 0 2.8 2.8l5.7-5.7a5 5 0 0 0 6.4-6.4l-3 3-3.2-.7-.7-3.2z"/><path d="m15 16 4.5 4.5a2 2 0 0 0 2.8-2.8L17.8 13"/></svg></div>
+              <div class="utility-title">WIN<span>FORGE</span> UTILITY</div>
+              <p class="utility-subtitle">Windows optimisation · Tweaks · Maintenance</p>
+              <code class="utility-command" id="command">iwr -useb https://winforge.berry.it.com/win | iex</code>
+              <button class="copy" type="button" id="copy-command">Copy command</button>
+              <small>Review the script before running it with administrator privileges.</small>
+            </div>
+          </div>
         </div>
 
         <div class="utility-panel" style="margin-top:24px">
@@ -182,11 +204,14 @@
             <a class="btn btn-secondary" href="https://blackjack.berry.it.com/">Explore Blackjack <span aria-hidden="true">↗</span></a>
           </div>
           <div class="terminal">
-            <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>PowerShell · Standard user</div>
-            <div class="terminal-body">
-              <code id="blackjack-command">irm https://blackjack.berry.it.com/play | iex</code>
+            <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>BERRY IT · Windows game</div>
+            <div class="terminal-body utility-preview">
+              <div class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="13" height="18" rx="2"/><path d="M4 6H3a1 1 0 0 0-1 1v13a2 2 0 0 0 2 2h11"/><path d="m13.5 8-2.8 3.2 2.8 3.3 2.8-3.3z"/></svg></div>
+              <div class="utility-title">BLACK<span>JACK</span></div>
+              <p class="utility-subtitle">PowerShell card game · Virtual chips</p>
+              <code class="utility-command" id="blackjack-command">irm https://blackjack.berry.it.com/play | iex</code>
               <button class="copy" type="button" id="copy-blackjack">Copy command</button>
-              <small>Requires Windows PowerShell and internet access. This runs a remote script; review it before executing.</small>
+              <small>Windows PowerShell · Standard user. Review remote scripts before running.</small>
             </div>
           </div>
         </div>
@@ -201,13 +226,11 @@
           </div>
           <div class="terminal">
             <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>BERRY IT · Desktop utility</div>
-            <div class="terminal-body" style="text-align:center">
-              <div style="display:inline-grid;place-items:center;width:80px;height:80px;border:1px solid #713137;border-radius:18px;background:#29171b;color:#ff3c3c;margin:8px auto 16px">
-                <svg width="43" height="43" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="m10 7 5 2.5-5 2.5zM12 16v5m-4-3 4 3 4-3"/></svg>
-              </div>
-              <div style="font:700 1rem Orbitron,sans-serif;color:#f4f4f4;margin-bottom:12px">VIDEO <span style="color:#ff3c3c">DOWNLOADER</span></div>
-              <p style="font-size:.88rem;color:#acaab2;margin:0 0 15px">MP4 · MP3 · Playlists</p>
-              <a class="btn btn-primary" style="width:100%" href="/video-downloader/">Download for Windows or Linux <span aria-hidden="true">↗</span></a>
+            <div class="terminal-body utility-preview">
+              <div class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="m10 7 5 2.5-5 2.5zM12 16v5m-4-3 4 3 4-3"/></svg></div>
+              <div class="utility-title">VIDEO <span>DOWNLOADER</span></div>
+              <p class="utility-subtitle">MP4 · MP3 · Playlists</p>
+              <a class="btn btn-primary utility-action" href="/video-downloader/">Download for Windows or Linux <span aria-hidden="true">↗</span></a>
               <small>Compiled builds are provided through GitHub Actions.</small>
             </div>
           </div>
@@ -223,15 +246,13 @@
           </div>
           <div class="terminal">
             <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>BERRY IT · Windows utility</div>
-            <div class="terminal-body">
-              <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin:14px 0 18px">
-                <img src="/berry-it-icon.png" alt="BERRY IT icon" style="width:76px;height:76px;object-fit:contain">
-                <span style="font:700 1.35rem Orbitron,sans-serif;color:#f4f4f4">BERRY IT <span style="color:#ff3c3c">NETWORK UTILITY</span></span>
-              </div>
-              
-              <code id="network-utility-command">irm https://network.berry.it.com/win | iex</code>
-              <button class="copy" type="button" onclick="navigator.clipboard.writeText(document.getElementById('network-utility-command').textContent).then(()=>{this.textContent='Copied!'}).catch(()=>{this.textContent='Select command to copy'})">Copy command</button>
-              <small>Windows PowerShell 5.1 · Preview build. The custom-domain endpoint must return the script successfully before running.</small>
+            <div class="terminal-body utility-preview">
+              <div class="utility-icon" aria-hidden="true"><img src="/berry-it-icon.png" alt="" style="width:58px;height:58px;object-fit:contain"></div>
+              <div class="utility-title">BERRY IT <span>NETWORK UTILITY</span></div>
+              <p class="utility-subtitle">Diagnostics · Speed test · Monitoring</p>
+              <code class="utility-command" id="network-utility-command">irm https://network.berry.it.com/win | iex</code>
+              <button class="copy" type="button" id="copy-network-utility">Copy command</button>
+              <small>Windows PowerShell 5.1 · Standard user. Review the script before running.</small>
             </div>
           </div>
         </div>
@@ -245,6 +266,7 @@
     menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
     navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
     document.getElementById('copy-blackjack').addEventListener('click',async()=>{const button=document.getElementById('copy-blackjack');const value=document.getElementById('blackjack-command').textContent;try{await navigator.clipboard.writeText(value);button.textContent='Copied!';setTimeout(()=>button.textContent='Copy command',1800);}catch(e){button.textContent='Select the command to copy';}});
+    document.getElementById('copy-network-utility').addEventListener('click',async()=>{const button=document.getElementById('copy-network-utility');try{await navigator.clipboard.writeText(document.getElementById('network-utility-command').textContent);button.textContent='Copied!';setTimeout(()=>button.textContent='Copy command',1800);}catch(e){button.textContent='Select command to copy';}});
     document.getElementById('year').textContent=new Date().getFullYear();
     document.getElementById('copy-command').addEventListener('click',async()=>{const button=document.getElementById('copy-command');try{await navigator.clipboard.writeText(document.getElementById('command').textContent);button.textContent='Copied!';setTimeout(()=>button.textContent='Copy command',1800);}catch(e){button.textContent='Select the command to copy';}});
   </script>
