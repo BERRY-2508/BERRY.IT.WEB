@@ -219,7 +219,7 @@
             <h2>Berry IT Network Utility</h2>
             <p>A native Windows PowerShell GUI for network diagnostics. View local and public IP addresses, device hostname and adapter details, monitor ping and run download/upload speed tests directly from the dashboard.</p>
             <p>Includes DNS lookup, traceroute, TCP port testing and local diagnostic reports. Standard user access for most tools.</p>
-            <a class="btn btn-secondary" href="https://github.com/BERRY-2508/Network-Utility">Explore Berry IT Network Utility <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="https://network.berry.it.com/">Explore Berry IT Network Utility <span aria-hidden="true">↗</span></a>
           </div>
           <div class="terminal">
             <div class="terminal-head"><span class="dots" aria-hidden="true">● ● ●</span>BERRY IT · Windows utility</div>
@@ -229,8 +229,9 @@
                 <span style="font:700 1.35rem Orbitron,sans-serif;color:#f4f4f4">BERRY IT <span style="color:#ff3c3c">NETWORK UTILITY</span></span>
               </div>
               <p style="font-size:.88rem;color:#acaab2">Native WPF GUI · Speed test · Diagnostics</p>
-              <a class="btn btn-primary" href="https://github.com/BERRY-2508/Network-Utility" style="width:100%">Open Network Utility Repository <span aria-hidden="true">↗</span></a>
-              <small>Standalone GitHub repository · Windows preview build.</small>
+              <code id="network-utility-command">irm https://network.berry.it.com/win | iex</code>
+              <button class="copy" type="button" onclick="navigator.clipboard.writeText(document.getElementById('network-utility-command').textContent).then(()=>{this.textContent='Copied!'}).catch(()=>{this.textContent='Select command to copy'})">Copy command</button>
+              <small>Windows PowerShell 5.1 · Preview build. The custom-domain endpoint must return the script successfully before running.</small>
             </div>
           </div>
         </div>
